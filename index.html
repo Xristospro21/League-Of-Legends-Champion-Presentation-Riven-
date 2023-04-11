@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVEN - LOL Champion</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sec1">
+            <div class="background-image">
+                <img src="/images/844660.jpg" alt="">
+                <div class="caption">
+                    <h5>THE EXILE </h5>
+                    <h1>RIVEN</h1>
+                    <p>Once a swordmaster in the warhosts of Noxus, Riven is an expatriate in a land she previously tried to conquer. She rose through the ranks on the strength of her conviction and brutal efficiency, and was rewarded with a legendary runic blade and a warband of her own. However, on the Ionian front, Riven's faith in her homeland was tested and ultimately broken. Having severed all ties to the empire, she now seeks to find her place in a shattered world, even as rumors abound that Noxus itself has been reforged... <a href="#">SEE MORE</a></p>
+                </div>
+            </div>
+        </div><!--sec1-->
+
+        <div class="sec2">
+            <div class="abilities-wrapper">
+                <div class="abilities">
+                    <h2>ABILITIES</h2>
+
+                    <div class="ability-list">
+                        <div id="p" class="ability-item active">
+                            <img src="/images/RivenRunicBlades.png" alt="">
+                        </div>
+                        <div id="q" class="ability-item">
+                            <img src="/images/RivenTriCleave.png" alt="">
+                        </div>
+                        <div id="w" class="ability-item">
+                            <img src="/images/RivenMartyr.png" alt="">
+                        </div>
+                        <div id="e" class="ability-item">
+                            <img src="/images/RivenFeint.png" alt="">
+                        </div>
+                        <div id="r" class="ability-item">
+                            <img src="/images/RivenFengShuiEngine.png" alt="">
+                        </div>
+                    </div> 
+
+                    <div class="ability-info">
+                        <p class="ability-info-type">PASSIVE</p>
+                        <h6 class="ability-info-name">RUNIC BLADE</h6>
+                        <p class="ability-info-desc">Riven's abilities charge her blade, and her basic attacks expend charges to deal an additional damage.</p>
+                    </div>
+                </div><!--abilities-->
+
+                <video id="video" muted loop autoplay>
+                    <source src="/videos/ability_0092_P1.webm" type="video/webm">
+                </video>
+            </div><!--abilities-wrapper-->
+        </div><!--sec2-->
+    </div><!--container-->
+
+
+
+    <script>
+        const abilities = {
+            "p" : ["ability_0092_P1", "PASSIVE", "RUNIC BLADE", "Riven's abilities charge her blade, and her basic attacks expend charges to deal an additional damage.."],
+            "q" : ["ability_0092_Q1", "Q", "BROKEN WINGS", "Riven lashes out in a series of strikes. This ability can be reactivated three times in a short time frame with the third hit knocking back nearby enemies.."],
+            "w" : ["ability_0092_W1", "W", "KI BURST", "Riven emits a Ki Burst, damaging and stunning nearby enemies.."],
+            "e" : ["ability_0092_W1", "E", "VALOR", "Riven steps forward a short distance and blocks incoming damage.."],
+            "r" : ["ability_0092_R1", "R", "BLADE OF THE EXILE", "Riven empowers her keepsake weapon with energy, and gains Attack Damage and Range. During this time, she also gains the ability to use Wind Slash, a powerful ranged attack, once."]
+        }
+
+        document.querySelectorAll(".ability-item").forEach((e) => {
+            e.addEventListener("click", () => {
+                document.querySelectorAll(".ability-item").forEach((ele) => {
+                    ele.classList.remove("active");
+                })
+
+                e.classList.add("active");
+
+                document.getElementById("video").style = "opacity: 0";
+                document.querySelector(".ability-info").style = "opacity: 0";
+
+                setTimeout(() => {
+                    document.getElementById("video").src = "/videos/" + abilities[e.id][0] + ".webm";
+                    document.querySelector(".ability-info-type").innerHTML = abilities[e.id][1];
+                    document.querySelector(".ability-info-name").innerHTML = abilities[e.id][2];
+                    document.querySelector(".ability-info-desc").innerHTML = abilities[e.id][3];
+
+                    document.getElementById("video").style = "opacity: 1";
+                    document.querySelector(".ability-info").style = "opacity: 1";
+                }, 250)
+            })
+        })
+    </script>
+</body>
+</html>
