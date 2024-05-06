@@ -1,0 +1,1 @@
+For my League of Legends champion presentation project, I chose to focus on Riven, the Exile. Riven is a fierce warrior known for her agility and skill with a blade, making her a popular choice among players who enjoy high-risk, high-reward gameplay.
